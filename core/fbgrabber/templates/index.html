@@ -1,0 +1,234 @@
+{% extends 'layout.html' %}
+
+{% block seo %}
+<meta name="title" content="FBGRABBER - Download Facebook videos online"/>
+<meta name="keywords" content="FBGRABBER, facebook, private, reels, videos, story"/>
+<meta name="description"
+      content="FBGRABBER downloader is a free online Facebook video downloading tool. You can download Facebook public video or Facebook private video without installing any software or registration."/>
+<meta property="og:title" content="FBGRABBER - Download Facebook videos online"/>
+<meta property="og:description"
+      content="FBGRABBER downloader is a free online Facebook video downloading tool. You can download Facebook public video or Facebook private video without installing any software or registration."/>
+<meta property="og:url" content="https://fbgrabber.reasadazim.com/"/>
+<meta property="og:image" content="../media/photos/logo.png"/>
+{% endblock %}
+
+{% block content %}
+
+{#  Download content  #}
+<div class="container mt-5">
+
+    {# Advertise #}
+    <center>
+        <script type="text/javascript">
+            var atOptions = {
+                'key': '265486d5668b4a0bef022b42b72aa2ec',
+                'format': 'iframe',
+                'height': 250,
+                'width': 300,
+                'params': {}
+            };
+            var slimad = document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.profitablecreativeformat.com/265486d5668b4a0bef022b42b72aa2ec/invoke.js"></scr' + 'ipt>');
+        </script>
+    </center>
+    {# END - Advertise #}
+
+
+    {# Alert #}
+    <div class="container m-auto mt-5">
+        <div class="col-lg-7 m-auto">
+            {% if error %}
+            <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <div style="padding-left: 15px;">
+                    {{ error }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+
+            {% if success %}
+            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </svg>
+                <div style="padding-left: 15px;">
+                    {{ success }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+
+            {% if warning %}
+            <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <div style="padding-left: 15px;">
+                    {{ warning }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    {# END - Alert #}
+
+    {% if hd_url %}
+
+    <div class="row mb-5">
+        <div class="m-auto" style="width: 350px;">
+            <div class="text-center mb-3">
+                <img src="{{ thumb }}" alt="" class="rounded" width="100%">
+            </div>
+            <div style="text-align: center">
+                <a href="{{ hd_url }}" class="btn btn-sm btn-success"><i class="fa fa-arrow-circle-o-down"
+                                                                         aria-hidden="true"></i> Download</a>
+            </div>
+        </div>
+    </div>
+
+    {% elif sd_url %}
+
+    <div class="row mb-5">
+        <div class="m-auto" style="width: 350px;">
+            <div class="text-center mb-3">
+                <img src="{{ thumb }}" alt="" class="rounded" width="100%">
+            </div>
+            <div style="text-align: center">
+                <a href="{{ hd_url }}" class="btn btn-sm btn-success"><i class="fa fa-arrow-circle-o-down"
+                                                                         aria-hidden="true"></i> Download</a>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if hd_urls|length > 0 %}
+    {% for url in hd_urls %}
+    <div class="row mb-5">
+        <div class="m-auto" style="width: 350px;">
+            <div class="text-center mb-3">
+                <img src="{{ url.thumb }}" alt="" class="rounded" width="100%">
+            </div>
+            <div style="text-align: center">
+                <a href="{{url.hd_url }}" class="btn btn-sm btn-success"><i class="fa fa-arrow-circle-o-down"
+                                                                            aria-hidden="true"></i> Download</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</div>
+{#  END - Download content  #}
+
+<div class="container">
+    <div class="header mt-2 mb-3">
+        <h3 class="text-center">Download Facebook video & reel</h3>
+    </div>
+    <div class="mt-3 col-lg-8 mx-auto card p-3 shadow-lg">
+
+        <form method="post" action="../fb_video_downloader/">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"><strong>Step 1: </strong>Login to your Facebook
+                    account from Laptop/Desktop and copy/paste video url</label>
+                <div class="input-group">
+                    <div class="input-group-text">
+                        <img src="../media/photos/social-media.png" alt="" width="20px">
+                    </div>
+                    <input name='url' type="text" class="form-control" id="url"
+                           placeholder="Example: https://www.facebook.com/watch/?v=637730157348346" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"><strong>Step 2: </strong>Copy the link below and open
+                    it in the browser (you must be logged in your facebook account with the same browser if you want to
+                    download any private video.).</label>
+                <div class="input-group">
+                    <div class="input-group-text">
+                        <img src="../media/photos/link.png" alt="" width="20px">
+                    </div>
+                    <input name="scrap_url" type="text" class="form-control" id="scrap_url" placeholder="">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="json_code" class="form-label"><strong>Step 3: </strong>Copy all the page source code and
+                    paste it in the box below. Validate the Recaptha and click on the download button.</label>
+                <textarea name="json_code" class="form-control" id="json_code" rows="3"
+                          placeholder="Paste all page source data here..." required></textarea>
+            </div>
+            {{ form.captcha }}
+            <div class="d-grid gap-2 mt-2">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-arrow-circle-o-down"
+                                                                 aria-hidden="true"></i> Download
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{#  Text  #}
+<div class="container m-auto pt-5">
+    <div class="row">
+        <div class="col-lg-8 m-auto">
+            <h4>FBGRABBER - Download Facebook videos online</h4>
+            <p><strong>FBGRABBER</strong> downloader is a free online Facebook video downloading tool. You can download
+                Facebook public video or Facebook private video without installing any software or registration.</p>
+            <h4 class="mt-5">Features</h4>
+            <ul>
+                <li><strong>Download Facebook public video:</strong> Download HD quality Facebook videos using
+                    FBGRABBER.
+                </li>
+                <li><strong>Download Facebook private video:</strong> FBGRABBER helps you to download HD version of
+                    facebook private video.
+                </li>
+                <li><strong>Download Facebook reel:</strong> FBGRABBER allows you to download HD quality reels from
+                    Facebook.
+                </li>
+            </ul>
+            <h4 class="mt-5">How to download facebook video, story or reel?</h4>
+            <h6 class="mt-4 mb-3"><strong>Step 1:</strong> Login to your Facebook account using PC and copy the URL of
+                the video you want to download.</h6>
+            <img src="../media/photos/step1.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 2:</strong> Paste URL of the video in the download form.</h6>
+            <img src="../media/photos/step2.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 3:</strong> Now copy the URL that appears here.</h6>
+            <img src="../media/photos/step3.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 4:</strong> Open a new tab in the browser and paste the copied link and
+                hit enter button. You must be logged in to Faceboook with the same browser. You will see source code
+                appears in the browser's window.</h6>
+            <img src="../media/photos/step4.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 5:</strong> Copy all source code by pressing Ctrl + A (Windows) or ⌘ + A
+                (Mac), then right-click and select "Copy".</h6>
+            <img src="../media/photos/step5.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 6:</strong> Paste all the source code in the box.</h6>
+            <img src="../media/photos/step6.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 7: Click on "I'm not a Robot" checkbox to validate Recaptcha and hit
+                download button.</strong></h6>
+            <img src="../media/photos/step7.png" class="rounded border" width="100%">
+            <h6 class="mt-4 mb-3"><strong>Step 8: </strong> Your video is ready to download. Click on the download
+                button to download the video.</h6>
+            <img src="../media/photos/step8.png" class="rounded border" width="100%">
+
+            <div class="alert alert-warning mt-5" role="alert">
+                <h4 class="alert-heading">Terms of service</h4>
+                <p>FBGRABBER download tool is designed to help download videos posted by your personal account. However,
+                    if you use this tool to breach the content and privacy of others, we have the right to stop offering
+                    the service.</p>
+                <hr>
+                <p class="mb-0">Please read our <a href="../terms">terms of service</a> before using this tool.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{#  END - Text  #}
+
+{% endblock %}
